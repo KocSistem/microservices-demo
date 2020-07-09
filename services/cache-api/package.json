@@ -1,0 +1,22 @@
+{
+  "name": "cache-api",
+  "version": "1.0.0",
+  "description": "cache-api demo",
+  "main": "app.js",
+  "repository": "https://github.com/KocSistem/microservices-demo",
+  "dependencies": {
+    "async": "^2.6.1",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "hbs": "^4.1.0",
+    "http-errors": "~1.6.2",
+    "moment": "^2.22.2",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7",
+    "redis": "^2.8.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
+}

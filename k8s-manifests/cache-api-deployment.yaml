@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cache-api
+spec:
+  selector:
+    matchLabels:
+      app: cache-api
+  template:
+    metadata:
+      labels:
+        app: cache-api
+    spec:
+      terminationGracePeriodSeconds: 5
+      containers:
+        - name: cache-api
+          image: cache-api
+          ports:
+          - containerPort: 9090
+            protocol: TCP
+          env:
+          - name: REDIS_HOST
+            value: "redis"
+          - name: REDIS_PORT
+            value: "6379"
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "200m"
+            limits:
+              memory: "1024Mi"
+              cpu: "1000m"

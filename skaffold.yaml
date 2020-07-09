@@ -8,6 +8,8 @@ build:
   # https://skaffold.dev/docs/concepts/#image-repository-handling
   - image: data-api
     context: services/data-api
+  - image: cache-api
+    context: services/cache-api
   tagPolicy:
     gitCommit: {}
 deploy:
