@@ -14,6 +14,10 @@ build:
     context: services/flights-api
   - image: quakes-api
     context: services/quakes-api
+  - image: weather-api
+    context: services/weather-api
+  - image: service-tracker-ui
+    context: services/service-tracker-ui
   tagPolicy:
     gitCommit: {}
 deploy:

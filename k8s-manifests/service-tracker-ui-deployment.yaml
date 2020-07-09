@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-tracker-ui
+spec:
+  selector:
+    matchLabels:
+      app: service-tracker-ui
+  template:
+    metadata:
+      labels:
+        app: service-tracker-ui
+    spec:
+      terminationGracePeriodSeconds: 5
+      containers:
+        - name: service-tracker-ui
+          image: service-tracker-ui
+          ports:
+          - containerPort: 3000
+            protocol: TCP
+          env:
+          - name: FLIGHT_API_ROOT
+            value: http://flights-api.svc.cluster.local:8081/
+          - name: WEATHER_API_ROOT
+            value: http://weather-api.svc.cluster.local:8083/
+          - name: QUAKES_API_ROOT
+            value: http://quakes-api.svc.cluster.local:8082/
+          - name: KUBE_NODE_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.nodeName
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "200m"
+            limits:
+              memory: "1024Mi"
+              cpu: "1000m"
