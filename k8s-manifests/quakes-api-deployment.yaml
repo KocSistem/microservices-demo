@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quakes-api
+spec:
+  selector:
+    matchLabels:
+      app: quakes-api
+  template:
+    metadata:
+      labels:
+        app: quakes-api
+    spec:
+      terminationGracePeriodSeconds: 6
+      containers:
+        - name: quakes-api
+          image: quakes-api
+          ports:
+          - containerPort: 8082
+            protocol: TCP
+          env:
+          - name: DATA_SERVICE_URI
+            value: http://data-api.svc.cluster.local:8080/
+          - name: CACHE_SERVICE_URI
+            value: http://cache-api.svc.cluster.local:9090/
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
