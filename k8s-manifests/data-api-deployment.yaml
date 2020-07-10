@@ -20,12 +20,15 @@ spec:
             protocol: TCP
           env:
           - name: MONGODB_USER
-            value: "user"
+            valueFrom:
+              secretKeyRef:
+                name: mongodb
+                key: MONGODB_USERNAME
           - name: MONGODB_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: mongodb
-                key: mongodb-password
+                key: MONGODB_PASSWORD
           resources:
             requests:
               memory: "512Mi"
