@@ -5,7 +5,7 @@
   "repository": "https://github.com/KocSistem/microservices-demo",
   "main": "app.js",
   "dependencies": {
-    "async": "^2.6.1",
+    "async": "^2.6.4",
     "bluebird": "^3.5.2",
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
